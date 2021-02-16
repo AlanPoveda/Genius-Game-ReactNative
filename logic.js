@@ -1,67 +1,65 @@
 export const geniusArray = []
-const playerArray = []
-
+let index = 0
+let start = true
 // Função para pegar um número aleatório
 
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}
 
 
 //Função para adicionar um elemento na array
 
 export function nextLevel(){
     geniusArray.push(getRandomInt(3))
+    index = 0
+    start = true
     console.log(geniusArray)
 }
 
 //Player game
 
-function playerPlay(){
-    
+function sendButton(buttonPress){
+  if (start){
+    start = false
+  }else{
+    index++
+  }
+  console.log(`indice ${index}`)
+  console.log(`Button press ${buttonPress}`)
+  console.log(`Start ${start}`)
+  validation(buttonPress);
+} 
 
+function validation(buttonPress){
+  console.log(`Indice do genius ${geniusArray[index]}`)
+  console.log(`Botão press ${buttonPress}`)
+  
+  if (geniusArray[index] === buttonPress){
+    
+    if ( index + 1 === geniusArray.length ){
+      console.log("Right, next level");
+      nextLevel();
+    }
+    console.log("Other value")
+  }else{
+    return console.log("Game Over");
+  }
+  
 }
 
 //Buttons 
 
-let buttonPress = 0
 export function blueButton(){
-  buttonPress = 0
-  playerArray.push(buttonPress)
-  validation()
-  console.log(buttonPress)
+  sendButton(0)
 } 
 export function greenButton(){
-  buttonPress = 1
-  playerArray.push(buttonPress)
-  validation()
-  console.log(buttonPress)
+  sendButton(1)
 }
 export function redButton(){
-  buttonPress = 2
-  playerArray.push(buttonPress)
-  validation()
-  console.log(buttonPress)
+  sendButton(2)
 }
 export function yellowButton(){
-  buttonPress = 3
-  playerArray.push(buttonPress)
-  validation()
-  console.log(buttonPress)
+  sendButton(3)
 }
-
-
-function validation(){
-  for ( let index = 0; index < geniusArray.length; index++){
-    if (geniusArray[index] === playerArray[index]){
-      console.log("corret, next");
-      
-    }else{
-      console.log("Game over")
-    }
-  }
-  nextLevel()
-
-}
-
