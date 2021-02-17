@@ -26,15 +26,11 @@ function sendButton(buttonPress){
   }else{
     index++
   }
-  console.log(`indice ${index}`)
-  console.log(`Button press ${buttonPress}`)
-  console.log(`Start ${start}`)
   validation(buttonPress);
 } 
 
 function validation(buttonPress){
-  console.log(`Indice do genius ${geniusArray[index]}`)
-  console.log(`Botão press ${buttonPress}`)
+  
   
   if (geniusArray[index] === buttonPress){
     

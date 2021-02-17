@@ -6,9 +6,11 @@ import { blueButton, geniusArray, greenButton, redButton, yellowButton } from '.
 
 
 const Buttons = styled.View`
-    align-items: center;
+    flex:1;
     flex-direction: row;
     justify-content:center;
+    
+
 `;
 
 
@@ -24,6 +26,7 @@ Buttons.Green = styled.View`
     height: 150px;
     background-color: #3CB371;
     border-top-right-radius: 50px;
+    
 `;
 Buttons.Red = styled.View`
     width: 150px;
@@ -43,8 +46,8 @@ export default function Game(){
     
 
     return(
-       <View style={{flex: 1}}>
-        <Buttons>
+       <View style={{flex:1}}>
+        <Buttons style={{backgroundColor:"blue"}}>
             <TouchableOpacity onPress={blueButton}>
                 <Buttons.Blue/>
             </TouchableOpacity>
@@ -55,7 +58,7 @@ export default function Game(){
             
             
         </Buttons>
-        <Buttons>
+        <Buttons style={{backgroundColor:"red"}}>
             <TouchableOpacity onPress={redButton}>
                 <Buttons.Red />
             </TouchableOpacity>

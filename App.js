@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-
+import StartButton from './src/components/ButtonStart'
 import Game from './src/components/Game/index'
 import { nextLevel, geniusArray, BlueButton } from './logic'
 
@@ -31,7 +31,6 @@ const ButtonPlayArea = styled.View`
 
 
 `
-
 const ButtonPlay = styled.Text`
   padding: 50px 50px;
   background-color: yellow;
@@ -43,37 +42,67 @@ const ButtonPlay = styled.Text`
 `;
 
 
+/*
 
-let goGame = false;
+
+const StartButton = ()=>{
+  
+
+  if(goGame === false){
+    return(
+    
+      <ButtonPlayArea>
+            <TouchableOpacity 
+            onPress={()=> {
+              setArrayGame([...arrayGame, geniusArray]);
+              nextLevel();
+              initGame();
+            }}>
+             <ButtonPlay >
+                Play
+              </ButtonPlay>
+          </TouchableOpacity>
+        </ButtonPlayArea>
+    )
+  }else{
+    return <Game />
+    
+  }
+  
+}
+*/
+
+//Logica gabiarra
+
+
+
+
+
+
+
+
 
 
 export default function App(){
   const [ arrayGame , setArrayGame] = useState([])
-  const [ textButton, setButton] = useState("Start")
+  const [ goGame , setGoGame ] = useState(false)
 
-  
- 
-  function quandoClicar(){
-    goGame = true;
 
-  }
+
 
   return (
-      <Background>
-        <ButtonPlayArea>
-          <TouchableOpacity 
-          onPress={()=> {
-            setArrayGame([...arrayGame, geniusArray]);
-            nextLevel();
-            quandoClicar();
-            setButton("Restart")
-          }}>
-           <ButtonPlay >
-              {textButton}
-            </ButtonPlay>
-        </TouchableOpacity>
-      </ButtonPlayArea>
-      {goGame === true && <Game />}
+    <Background>
+      <StartButton 
+        
+        goGame={goGame}
+        arrayGame={arrayGame}
+        
+        setGoGame={()=>setGoGame(true)}
+        setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
+
+        nextLevel={()=>nextLevel()}
+        
+       />
     </Background>
   );
   

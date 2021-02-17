@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Button, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import { nextLevel, geniusArray } from '../../../logic'
+import Game from '../Game'
 
 const ButtonPlayArea = styled.View`
   
@@ -25,20 +26,30 @@ const ButtonPlay = styled.Text`
 
 
 
-export default function PlayButton(){
-    const [ arrayGame , setArrayGame] = useState([])
 
+export default function StartButton(props){
+
+  if(props.goGame === false){
     return(
-    
-    <ButtonPlayArea>
-        <TouchableOpacity onPress={nextLevel, ()=> setArrayGame([...arrayGame, geniusArray])}>
-        <ButtonPlay>
-            Play
-        </ButtonPlay>
-        <Text>{arrayGame.length}</Text>
-        </TouchableOpacity>
-    </ButtonPlayArea>)
-    
+
+      <ButtonPlayArea>
+            <TouchableOpacity onPress={()=>{
+              props.setGoGame();
+              props.nextLevel();
+              props.setArrayGame()
+            
+            }}>
+              <ButtonPlay >
+                Play
+              </ButtonPlay>
+          </TouchableOpacity>
+        </ButtonPlayArea>
+    )
+  }else{
+    return <Game />
+  }
+  
+
 }
 
   
