@@ -49,13 +49,16 @@ export default function GameOver(){
                 Game Over               
             </GameOverText>
             <GameOverText.Subtext>
-                Score: {geniusArray.length}
+                Score: 
             </GameOverText.Subtext>
             <TouchableOpacity>
             <GameOverView.ButtonRestart>
                 Try Again
             </GameOverView.ButtonRestart>
             </TouchableOpacity>
+            <GameOverText.Subtext style={{paddingTop: 20}}>
+                Good Luck Next!
+            </GameOverText.Subtext>
 
         </GameOverView>
     )    
