@@ -5,16 +5,40 @@ import styled from 'styled-components';
 import { blueButton, geniusArray, greenButton, redButton, yellowButton } from '../../../logic'
 
 
-const Buttons = styled.View`
-    flex:1;
-    flex-direction: row;
-    justify-content:center;
-    
+
+
+const LevelText = styled.Text`
+    color: white;
+    font-size: 40px;
+    padding-bottom: 5px;
+`;
+
+LevelText.Score = styled.Text`
+    color: white;
+    font-size: 30px;
+    padding-bottom: 20px;
 
 `;
 
 
-Buttons.Blue = styled.View`
+const Buttons = styled.View`
+    flex: 1;
+    align-items:center;
+    justify-content:center;
+    
+    
+
+`;
+
+Buttons.Top = styled.Text`
+    flex-direction: row;
+`;
+
+Buttons.Bot = styled.Text`
+    flex-direction: row;
+`;
+
+Buttons.Blue = styled.Text`
     width: 150px;
     height: 150px;
     background-color: #1E90FF;
@@ -28,13 +52,13 @@ Buttons.Green = styled.View`
     border-top-right-radius: 50px;
     
 `;
-Buttons.Red = styled.View`
+Buttons.Red = styled.Text`
     width: 150px;
     height: 150px;
     background-color: #FA8072;
     border-bottom-left-radius: 50px;
 `;
-Buttons.Yellow = styled.View`
+Buttons.Yellow = styled.Text`
     width: 150px;
     height: 150px;
     background-color: #FFD700;
@@ -46,29 +70,36 @@ export default function Game(){
     
 
     return(
-       <View style={{flex:1}}>
-        <Buttons style={{backgroundColor:"blue"}}>
-            <TouchableOpacity onPress={blueButton}>
-                <Buttons.Blue/>
-            </TouchableOpacity>
+       <Buttons > 
+            <LevelText>
+                Level 
+            </LevelText>
+            <LevelText.Score>
+                0 
+            </LevelText.Score>
+            <Buttons.Top>
+                <TouchableOpacity onPress={blueButton}>
+                    <Buttons.Blue/>
+                </TouchableOpacity>
+                
+                <TouchableOpacity onPress={greenButton}>
+                    <Buttons.Green />
+                </TouchableOpacity>
+            </Buttons.Top>
+           
+            <Buttons.Bot>
+                <TouchableOpacity onPress={redButton}>
+                    <Buttons.Red />
+                </TouchableOpacity>
+                
+                <TouchableOpacity onPress={yellowButton}>
+                    <Buttons.Yellow />
+                </TouchableOpacity>
             
-            <TouchableOpacity onPress={greenButton}>
-                <Buttons.Green />
-            </TouchableOpacity>
+            </Buttons.Bot>
             
-            
-        </Buttons>
-        <Buttons style={{backgroundColor:"red"}}>
-            <TouchableOpacity onPress={redButton}>
-                <Buttons.Red />
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={yellowButton}>
-                <Buttons.Yellow />
-            </TouchableOpacity>
-            
-        </Buttons>
-       </View>
+        
+       </Buttons>
         
 
     )
