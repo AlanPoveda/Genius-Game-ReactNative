@@ -39,7 +39,7 @@ GameOverView.ButtonRestart = styled.Text`
 
 
 
-export default function GameOver(){
+export default function GameOver(props){
 
 
     return(
@@ -49,12 +49,12 @@ export default function GameOver(){
                 Game Over               
             </GameOverText>
             <GameOverText.Subtext>
-                Score: 
+                Score: {props.arrayGame.length - 1}
             </GameOverText.Subtext>
             <TouchableOpacity>
-            <GameOverView.ButtonRestart>
-                Try Again
-            </GameOverView.ButtonRestart>
+                <GameOverView.ButtonRestart>
+                    Try Again
+                </GameOverView.ButtonRestart>
             </TouchableOpacity>
             <GameOverText.Subtext style={{paddingTop: 20}}>
                 Good Luck Next!

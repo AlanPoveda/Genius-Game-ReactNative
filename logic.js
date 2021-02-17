@@ -1,4 +1,5 @@
 export const geniusArray = []
+export let gameOver = false
 let index = 0
 let start = true
 // Função para pegar um número aleatório
@@ -12,7 +13,7 @@ function getRandomInt(max) {
 //Função para adicionar um elemento na array
 
 export function nextLevel(){
-    geniusArray.push(getRandomInt(3))
+    geniusArray.push(getRandomInt(4))
     index = 0
     start = true
     console.log(geniusArray)
@@ -40,7 +41,9 @@ function validation(buttonPress){
     }
     console.log("Other value")
   }else{
-    return console.log("Game Over");
+    console.log("Game Over");
+    return gameOver = true
+    
   }
   
 }

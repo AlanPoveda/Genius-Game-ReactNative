@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-import StartButton from './src/components/ButtonStart';
+import Home from './src/components/Home';
 import GameOver from './src/components/GameOver';
 import Game from './src/components/Game/index'
 
-import { nextLevel, geniusArray, validation } from './logic'
+import { nextLevel, geniusArray, validation, gameOver } from './logic'
 
 const Background = ({ children })=>{
   return(
@@ -39,16 +39,17 @@ const screenStates = {
 export default function App(){
   const [ arrayGame , setArrayGame] = useState([])
   const [ screenState, setScreenState] = useState(screenStates.Home)
-  const [ gameOver, setGameOver ] = useState("")
+  const [ gameIsOver, setGameIsOver ] = useState()
+  
   
 
 
   function changeScreen(){
 
     
-    if(setGameOver() === "Game Over" ){
-      setScreenState(screenStates.GameOver)  
-    }
+  
+    //setScreenState(screenStates.GameOver)  
+    
     setScreenState(screenStates.Game)
 
   }
@@ -58,7 +59,7 @@ export default function App(){
     <Background>
       
       {screenState === screenStates.Home && (
-          <StartButton 
+          <Home 
             
             arrayGame={arrayGame}
 
@@ -71,15 +72,23 @@ export default function App(){
     
     {screenState === screenStates.Game && (
       <Game 
-        gameOver={gameOver}
+        
+        
+
         arrayGame={arrayGame}
-        setGameOver={()=>setGameOver(validation)}
         setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
-      />
+
+        screeState={()=>changeScreen()}
+      />  
     )}
       
       {screenState === screenStates.GameOver && (
-      <GameOver />
+      <GameOver
+
+        arrayGame={arrayGame}
+        
+        
+      />
     )}
      
       

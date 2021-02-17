@@ -81,6 +81,7 @@ export default function Game(props){
                     blueButton();
                     props.setArrayGame();
                     
+                    
                 }}>
                     <Buttons.Blue />
                 </TouchableOpacity>
@@ -88,6 +89,7 @@ export default function Game(props){
                 <TouchableOpacity onPress={()=>{
                     greenButton();
                     props.setArrayGame();
+                    
                     
                     }}>
                     <Buttons.Green />
@@ -99,6 +101,7 @@ export default function Game(props){
                     redButton();
                     props.setArrayGame();
                     
+                    
                 }}>
                     <Buttons.Red />
                 </TouchableOpacity>
@@ -106,6 +109,7 @@ export default function Game(props){
                 <TouchableOpacity onPress={()=>{
                     yellowButton();
                     props.setArrayGame();
+                    
                     
                 }}>
                     <Buttons.Yellow />
