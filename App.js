@@ -5,9 +5,11 @@ import styled from 'styled-components';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-import StartButton from './src/components/ButtonStart'
+import StartButton from './src/components/ButtonStart';
+import GameOver from './src/components/GameOver';
 import Game from './src/components/Game/index'
-import { nextLevel, geniusArray, BlueButton } from './logic'
+
+import { nextLevel, geniusArray, validation } from './logic'
 
 const Background = ({ children })=>{
   return(
@@ -23,86 +25,65 @@ const Background = ({ children })=>{
 };
 
 
-const ButtonPlayArea = styled.View`
-  
-  flex:1;
-  justify-content: center;
-  align-items:center;
 
+const screenStates = {
+  Home: 'Home',
+  Game: 'Game',
+  GameOver: 'GameOver'
 
-`
-const ButtonPlay = styled.Text`
-  padding: 50px 50px;
-  background-color: yellow;
-  font-size: 40px;
-  border-radius: 20px;
-  color: grey;
-  
-  
-`;
-
-
-/*
-
-
-const StartButton = ()=>{
-  
-
-  if(goGame === false){
-    return(
-    
-      <ButtonPlayArea>
-            <TouchableOpacity 
-            onPress={()=> {
-              setArrayGame([...arrayGame, geniusArray]);
-              nextLevel();
-              initGame();
-            }}>
-             <ButtonPlay >
-                Play
-              </ButtonPlay>
-          </TouchableOpacity>
-        </ButtonPlayArea>
-    )
-  }else{
-    return <Game />
-    
-  }
-  
 }
-*/
-
-//Logica gabiarra
-
-
-
-
-
-
 
 
 
 
 export default function App(){
   const [ arrayGame , setArrayGame] = useState([])
-  const [ goGame , setGoGame ] = useState(false)
+  const [ screenState, setScreenState] = useState(screenStates.Home)
+  const [ gameOver, setGameOver ] = useState("")
+  
 
 
+  function changeScreen(){
 
+    
+    if(setGameOver() === "Game Over" ){
+      setScreenState(screenStates.GameOver)  
+    }
+    setScreenState(screenStates.Game)
 
+  }
+
+  
   return (
     <Background>
-      <StartButton 
-        
-        goGame={goGame}
-        arrayGame={arrayGame}
-        
-        setGoGame={()=>setGoGame(true)}
-        setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
+      
+      {screenState === screenStates.Home && (
+          <StartButton 
+            
+            arrayGame={arrayGame}
 
-        nextLevel={()=>nextLevel()}
-        
-       />
+            
+            screeState={()=>changeScreen()}
+            setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
+            nextLevel={()=>nextLevel()}
+          />
+    )}
+    
+    {screenState === screenStates.Game && (
+      <Game 
+        gameOver={gameOver}
+        arrayGame={arrayGame}
+        setGameOver={()=>setGameOver(validation)}
+        setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
+      />
+    )}
+      
+      {screenState === screenStates.GameOver && (
+      <GameOver />
+    )}
+     
+      
+      
     </Background>
   );
   
