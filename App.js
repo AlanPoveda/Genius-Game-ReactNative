@@ -47,8 +47,10 @@ export default function App(){
   function changeScreen(){
 
     
-  
-    //setScreenState(screenStates.GameOver)  
+    if(gameOver === true){
+      setScreenState(screenStates.GameOver)  
+    }
+    
     
     setScreenState(screenStates.Game)
 

@@ -4,9 +4,6 @@ import styled from 'styled-components';
 
 import { blueButton, greenButton, redButton, yellowButton } from '../../../logic'
 
-
-
-
 const LevelText = styled.Text`
     color: white;
     font-size: 40px;
@@ -41,7 +38,7 @@ Buttons.Blue = styled.Text`
     border-top-left-radius: 50px;
 `;
 
-Buttons.Green = styled.View`
+Buttons.Green = styled.Text`
     width: 150px;
     height: 150px;
     background-color: #3CB371;
