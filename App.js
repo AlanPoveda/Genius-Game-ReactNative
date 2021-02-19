@@ -1,102 +1,67 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { Text, View, Button, TouchableOpacity } from 'react-native';
-import styled from 'styled-components';
-import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import { Text, View, Button, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
+import Home from "./src/components/Home";
+import GameOver from "./src/components/GameOver";
+import Game from "./src/components/Game/index";
 
-import Home from './src/components/Home';
-import GameOver from './src/components/GameOver';
-import Game from './src/components/Game/index'
+import { nextLevel, geniusArray, gameOver } from "./GameLogic";
 
-import { nextLevel, geniusArray, validation, gameOver } from './logic'
-
-const Background = ({ children })=>{
-  return(
-    <LinearGradient 
-      colors={['#2c3e50', '#3498db']}
+const Background = ({ children }) => {
+  return (
+    <LinearGradient
+      colors={["#2c3e50", "#3498db"]}
       style={{
-        flex:1,
-      }}>
-        { children }
+        flex: 1,
+      }}
+    >
+      {children}
     </LinearGradient>
   );
-  
 };
 
-
-
 const screenStates = {
-  Home: 'Home',
-  Game: 'Game',
-  GameOver: 'GameOver'
+  Home: "Home",
+  Game: "Game",
+  GameOver: "GameOver",
+};
 
-}
-
-
-
-
-export default function App(){
-  const [ arrayGame , setArrayGame] = useState([])
-  const [ screenState, setScreenState] = useState(screenStates.Home)
-  const [ gameIsOver, setGameIsOver ] = useState()
-  
+export default function App() {
+  const [arrayGame, setArrayGame] = useState(1);
+  const [screenState, setScreenState] = useState(screenStates.Home);
   
 
-
-  function changeScreen(){
-
-    
-    if(gameOver === true){
-      setScreenState(screenStates.GameOver)  
+  function changeScreen() {
+    if (gameOver === true) {
+      setScreenState(screenStates.GameOver);
+    } else {
+      setScreenState(screenStates.Game);
     }
-    
-    
-    setScreenState(screenStates.Game)
-
   }
 
-  
   return (
     <Background>
-      
       {screenState === screenStates.Home && (
-          <Home 
-            
-            arrayGame={arrayGame}
+        <Home
+          screenState={() => changeScreen()}
+          nextLevel={() => nextLevel()}
+        />
+      )}
 
-            
-            screeState={()=>changeScreen()}
-            setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
-            nextLevel={()=>nextLevel()}
-          />
-    )}
-    
-    {screenState === screenStates.Game && (
-      <Game 
-        
-        
+      {screenState === screenStates.Game && (
+        <Game
+          
+          arrayGame={arrayGame}
+          setArrayGame={() => setArrayGame(geniusArray.length)}
+          screeState={() => changeScreen()}
+        />
+      )}
 
-        arrayGame={arrayGame}
-        setArrayGame={()=>setArrayGame([...arrayGame, geniusArray])}
-
-        screeState={()=>changeScreen()}
-      />  
-    )}
-      
       {screenState === screenStates.GameOver && (
-      <GameOver
-
-        arrayGame={arrayGame}
-        
-        
-      />
-    )}
-     
-      
-      
+        <GameOver arrayGame={arrayGame} />
+      )}
     </Background>
   );
-  
 }
-
