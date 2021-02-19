@@ -22,7 +22,8 @@ export default function Home(props) {
       <TouchableOpacity
         onPress={() => {
           props.screenState();
-          props.nextLevel();
+    
+          props.playGame();
           
         }}
       >

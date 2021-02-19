@@ -34,13 +34,15 @@ export default function App() {
 
   function restartGame(){
     setScreenState(screenStates.Home);
-    
+    playGame();
+    setArrayGame(1);
   }
   
 
   function changeScreen() {
     if (gameOver === true) {
       setScreenState(screenStates.GameOver);
+      
     } else {
       setScreenState(screenStates.Game);
     }
@@ -67,8 +69,7 @@ export default function App() {
 
       {screenState === screenStates.GameOver && (
         <GameOver arrayGame={arrayGame}
-                  restartGame={()=>restartGame()}
-                  playGame={()=>playGame()}    
+                  restartGame={()=>restartGame()}   
                                 
         />
       )}

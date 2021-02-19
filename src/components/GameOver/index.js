@@ -37,7 +37,11 @@ export default function GameOver(props) {
         Score: {props.arrayGame}
       </GameOverText.Subtext>
       <TouchableOpacity>
-        <GameOverView.ButtonRestart>Try Again</GameOverView.ButtonRestart>
+        <GameOverView.ButtonRestart
+          onPress={()=>{
+            props.restartGame()
+          }}
+        >Try Again</GameOverView.ButtonRestart>
       </TouchableOpacity>
       <GameOverText.Subtext style={{ paddingTop: 20 }}>
         Good Luck Next!

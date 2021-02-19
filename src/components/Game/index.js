@@ -79,7 +79,7 @@ export default function Game(props) {
           onPress={() => {
             blueButton();
             props.setArrayGame();
-            props.screeState();
+            props.screenState();
           }}
         >
           <Buttons.Blue />
@@ -89,7 +89,7 @@ export default function Game(props) {
           onPress={() => {
             greenButton();
             props.setArrayGame();
-            props.screeState();
+            props.screenState();
           }}
         >
           <Buttons.Green />
@@ -101,7 +101,7 @@ export default function Game(props) {
           onPress={() => {
             redButton();
             props.setArrayGame();
-            props.screeState();
+            props.screenState();
           }}
         >
           <Buttons.Red />
@@ -111,7 +111,7 @@ export default function Game(props) {
           onPress={() => {
             yellowButton();
             props.setArrayGame();
-            props.screeState();
+            props.screenState();
           }}
         >
           <Buttons.Yellow />
