@@ -1,7 +1,4 @@
-
-
 export let gameOver = false 
-
 export let geniusArray = [];
 
 let index = 0;
