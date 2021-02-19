@@ -7,7 +7,7 @@ import Home from "./src/components/Home";
 import GameOver from "./src/components/GameOver";
 import Game from "./src/components/Game/index";
 
-import { nextLevel, geniusArray, gameOver } from "./GameLogic";
+import { nextLevel, geniusArray, gameOver, playGame } from "./GameLogic";
 
 const Background = ({ children }) => {
   return (
@@ -31,6 +31,11 @@ const screenStates = {
 export default function App() {
   const [arrayGame, setArrayGame] = useState(1);
   const [screenState, setScreenState] = useState(screenStates.Home);
+
+  function restartGame(){
+    setScreenState(screenStates.Home);
+    
+  }
   
 
   function changeScreen() {
@@ -46,7 +51,8 @@ export default function App() {
       {screenState === screenStates.Home && (
         <Home
           screenState={() => changeScreen()}
-          nextLevel={() => nextLevel()}
+          playGame={()=> playGame()}
+          
         />
       )}
 
@@ -55,12 +61,16 @@ export default function App() {
           
           arrayGame={arrayGame}
           setArrayGame={() => setArrayGame(geniusArray.length)}
-          screeState={() => changeScreen()}
+          screenState={() => changeScreen()}
         />
       )}
 
       {screenState === screenStates.GameOver && (
-        <GameOver arrayGame={arrayGame} />
+        <GameOver arrayGame={arrayGame}
+                  restartGame={()=>restartGame()}
+                  playGame={()=>playGame()}    
+                                
+        />
       )}
     </Background>
   );

@@ -2,7 +2,7 @@
 
 export let gameOver = false 
 
-export const geniusArray = [];
+export let geniusArray = [];
 
 let index = 0;
 let start = true;
@@ -14,7 +14,7 @@ function getRandomInt(max) {
 
 //Função para adicionar um elemento na array
 
-export function nextLevel() {
+function nextLevel() {
   geniusArray.push(getRandomInt(4));
   index = 0;
   start = true;
@@ -22,6 +22,14 @@ export function nextLevel() {
 }
 
 //Player game
+
+
+export function playGame(){
+  gameOver = false
+  geniusArray = []
+  nextLevel()
+
+}
 
 function sendButton(buttonPress) {
   if (start) {
