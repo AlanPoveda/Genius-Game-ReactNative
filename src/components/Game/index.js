@@ -5,6 +5,7 @@ import {
   Button,
   TouchableOpacity,
   ProgressViewIOSComponent,
+  Animated,
 } from "react-native";   
 import styled from "styled-components";
 
@@ -48,6 +49,7 @@ Buttons.Blue = styled.Text`
   background-color: #1e90ff;
   border-top-left-radius: 50px;
   overflow: hidden;
+
 `;
 
 Buttons.Green = styled.Text`
@@ -76,21 +78,21 @@ Buttons.Yellow = styled.Text`
 
 export default function Game(props) {
 
-
-
   return (
     <Buttons >
       <LevelText>Level</LevelText>
       <LevelText.Score>{props.arrayGame}</LevelText.Score>
+      <LevelText.Score>{props.arrayGameShow}</LevelText.Score>
       <Buttons.Top>
         <TouchableOpacity
           onPress={() => {
             blueButton();
             props.setArrayGame();
             props.screenState();
+            props.setArrayGameShow();
           }}
         >
-          <Buttons.Blue />
+          <Buttons.Blue >0</Buttons.Blue>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -98,9 +100,10 @@ export default function Game(props) {
             greenButton();
             props.setArrayGame();
             props.screenState();
+            props.setArrayGameShow();
           }}
         >
-          <Buttons.Green />
+          <Buttons.Green >1</Buttons.Green>
         </TouchableOpacity>
       </Buttons.Top>
 
@@ -110,19 +113,21 @@ export default function Game(props) {
             redButton();
             props.setArrayGame();
             props.screenState();
+            props.setArrayGameShow();
           }}
         >
-          <Buttons.Red />
+          <Buttons.Red >2</Buttons.Red>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => {
+          onPress={() => {            
             yellowButton();
             props.setArrayGame();
             props.screenState();
+            props.setArrayGameShow();
           }}
         >
-          <Buttons.Yellow />
+          <Buttons.Yellow >3</Buttons.Yellow>
         </TouchableOpacity>
       </Buttons.Bot>
     </Buttons>

@@ -24,7 +24,9 @@ export default function Home(props) {
       <TouchableOpacity
         onPress={() => {
           props.playGame();
-          props.screenState();   
+          props.setArrayGameShow();
+          props.screenState();
+             
         }}
       >
         <ButtonPlay>Play</ButtonPlay>

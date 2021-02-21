@@ -42,7 +42,7 @@ export default function GameOver(props) {
       <TouchableOpacity>
         <GameOverView.ButtonRestart
           onPress={()=>{
-            props.restartGame()
+            props.restartGame();       
           }}
         >Try Again</GameOverView.ButtonRestart>
       </TouchableOpacity>

@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Text, View, Button, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 import Home from "./src/components/Home";
 import GameOver from "./src/components/GameOver";
@@ -23,36 +23,25 @@ const Background = ({ children }) => {
   );
 };
 
-
-
 const screenStates = {
   Home: "Home",
-  Animation: "Animation",
   Game: "Game",
   GameOver: "GameOver",
 };
 
 export default function App() {
   const [arrayGame, setArrayGame] = useState(1);
+  const [arrayGameShow, setArrayGameShow] = useState(geniusArray);
   const [screenState, setScreenState] = useState(screenStates.Home);
 
-  function animation(){
-
-
-  }  
-
-
-
-  function restartGame(){
+  function restartGame() {
     setScreenState(screenStates.Home);
     setArrayGame(1);
   }
-  
 
   function changeScreen() {
     if (gameOver === true) {
       setScreenState(screenStates.GameOver);
-      
     } else {
       setScreenState(screenStates.Game);
     }
@@ -63,25 +52,23 @@ export default function App() {
       {screenState === screenStates.Home && (
         <Home
           screenState={() => changeScreen()}
-          playGame={()=> playGame()}
-          
+          playGame={() => playGame()}
+          setArrayGameShow={() => setArrayGameShow(geniusArray)}
         />
       )}
 
       {screenState === screenStates.Game && (
         <Game
-          
+          arrayGameShow={arrayGameShow}
           arrayGame={arrayGame}
           setArrayGame={() => setArrayGame(geniusArray.length)}
           screenState={() => changeScreen()}
+          setArrayGameShow={() => setArrayGameShow(geniusArray)}
         />
       )}
 
       {screenState === screenStates.GameOver && (
-        <GameOver arrayGame={arrayGame}
-                  restartGame={()=>restartGame()}   
-                                
-        />
+        <GameOver arrayGame={arrayGame} restartGame={() => restartGame()} />
       )}
     </Background>
   );
