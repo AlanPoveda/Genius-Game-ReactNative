@@ -5,7 +5,7 @@ import {
   Button,
   TouchableOpacity,
   ProgressViewIOSComponent,
-} from "react-native";
+} from "react-native";   
 import styled from "styled-components";
 
 import {
@@ -31,6 +31,7 @@ const Buttons = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+  
 `;
 
 Buttons.Top = styled.Text`
@@ -46,6 +47,7 @@ Buttons.Blue = styled.Text`
   height: 150px;
   background-color: #1e90ff;
   border-top-left-radius: 50px;
+  overflow: hidden;
 `;
 
 Buttons.Green = styled.Text`
@@ -53,6 +55,7 @@ Buttons.Green = styled.Text`
   height: 150px;
   background-color: #3cb371;
   border-top-right-radius: 50px;
+  overflow: hidden;
 `;
 
 Buttons.Red = styled.Text`
@@ -60,6 +63,7 @@ Buttons.Red = styled.Text`
   height: 150px;
   background-color: #fa8072;
   border-bottom-left-radius: 50px;
+  overflow: hidden;
 `;
 
 Buttons.Yellow = styled.Text`
@@ -67,9 +71,13 @@ Buttons.Yellow = styled.Text`
   height: 150px;
   background-color: #ffd700;
   border-bottom-right-radius: 50px;
+  overflow: hidden;
 `;
 
 export default function Game(props) {
+
+
+
   return (
     <Buttons >
       <LevelText>Level</LevelText>

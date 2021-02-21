@@ -13,12 +13,14 @@ const GameOverView = styled.View`
 const GameOverText = styled.Text`
   color: white;
   font-size: 50px;
+  
 `;
 
 GameOverText.Subtext = styled.Text`
   color: white;
   font-size: 30px;
   padding-bottom: 50px;
+  
 `;
 
 GameOverView.ButtonRestart = styled.Text`
@@ -27,6 +29,7 @@ GameOverView.ButtonRestart = styled.Text`
   font-size: 40px;
   border-radius: 20px;
   color: white;
+  overflow: hidden;
 `;
 
 export default function GameOver(props) {

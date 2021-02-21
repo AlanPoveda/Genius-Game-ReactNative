@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Text, View, Button, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import styled from 'styled-components'
 
 import Home from "./src/components/Home";
 import GameOver from "./src/components/GameOver";
@@ -22,8 +23,11 @@ const Background = ({ children }) => {
   );
 };
 
+
+
 const screenStates = {
   Home: "Home",
+  Animation: "Animation",
   Game: "Game",
   GameOver: "GameOver",
 };
@@ -32,9 +36,15 @@ export default function App() {
   const [arrayGame, setArrayGame] = useState(1);
   const [screenState, setScreenState] = useState(screenStates.Home);
 
+  function animation(){
+
+
+  }  
+
+
+
   function restartGame(){
     setScreenState(screenStates.Home);
-    playGame();
     setArrayGame(1);
   }
   

@@ -46,7 +46,6 @@ function validation(buttonPress) {
     console.log("Other value");
   } else {
     console.log("Game Over");
-    //Jeito certo de usar o hook
     return gameOver = true;
   }
 }
