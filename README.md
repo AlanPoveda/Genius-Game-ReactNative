@@ -1,10 +1,10 @@
 # Genius-Game-ReactNative ⚛
 Jogo Genius em React Native, ainda em desenvolvimento.
 
-<img src="/ImagesReadme/game.jpeg" width="200" height="200">
-![](/ImagesReadme/game.jpeg)
-![](/ImagesReadme/gameplay.jpeg)
-![](/ImagesReadme/gameover.jpeg)
+<img src="/ImagesReadme/play.jpeg" width="200">
+<img src="/ImagesReadme/game.jpeg" width="200">
+<img src="/ImagesReadme/gameplay.jpeg" width="200">
+<img src="/ImagesReadme/gameover.jpeg" width="200">
 
 # Como jogar!
 
