@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Text,
   View,
@@ -83,46 +83,29 @@ Buttons.Yellow = styled.View`
 
 
 export default function Game(props) {
-  const opacity = useState(new Animated.Value(0))[0]
-  const [ opacityState, setOpacityState] = useState()
+  const opacity = useState(new Animated.Value(1))[0]
 
-  animationArray()
 
+
+  opacityAnimationActive()
   function opacityAnimationActive(){
     Animated.timing(opacity,{
-      toValue: 1,
-      duration: 1000,
+      toValue: 0,
+      duration: 500,
       useNativeDriver: true,
     }).start()
     
-    
+  }   
+  function opacityAnimationInaActive(){
+    Animated.timing(opacity,{
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start()
   }
-  
-  
-  
-  let opacity00 = {opacity} //1
-  let opacity01 = {opacity} //1
-  let opacity02 = {opacity} //1
-  let opacity03 = {opacity} //1
-  console.log(`Esta é a quantidade de itens ${props.arrayGameShow.length}`)
-  function animationArray(){
-    for (let index= 0 ; index < props.arrayGameShow.length ; index++){
-      if(props.arrayGame[index] === 0)  {
-        opacity00 = {opacity} //0
-        console.log(`Estou aqui 0`)
-      }else if(props.arrayGame[index] === 1)  {
-        console.log(`Estou aqui 1`)
-      }else if(props.arrayGame[index] === 2)  {
-        console.log(`Estou aqui 2`)
-      }else if(props.arrayGame[index] === 3)  {
-        console.log(`Estou aqui 3`)
-      }
-
-    }
-    opacityAnimationActive()
-  }
-
-
+  setTimeout(()=>{
+    opacityAnimationInaActive() 
+  },1000);
 
   return (
     <Buttons >
@@ -138,9 +121,9 @@ export default function Game(props) {
             props.setArrayGameShow();
           }}
         >
-          <Animated.View style={opacity00}>
+          <Animated.View style={{opacity}}>
             <Buttons.Blue ><Text style={{padding: 15}}>0</Text></Buttons.Blue>
-          </Animated.View>
+          </Animated.View> 
           
         </TouchableOpacity>
 
@@ -152,7 +135,7 @@ export default function Game(props) {
             props.setArrayGameShow();
           }}
         >
-          <Animated.View style={opacity01}>
+          <Animated.View style={{opacity}}>
             <Buttons.Green ><Text>1</Text></Buttons.Green>
             </Animated.View>
         </TouchableOpacity>
@@ -167,7 +150,7 @@ export default function Game(props) {
             props.setArrayGameShow();
           }}
         >
-          <Animated.View style={opacity02}>
+          <Animated.View style={{opacity}}>
             <Buttons.Red ><Text>2</Text></Buttons.Red>
             </Animated.View>
         </TouchableOpacity>
@@ -180,7 +163,7 @@ export default function Game(props) {
             props.setArrayGameShow();
           }}
         >
-          <Animated.View style={opacity03}>
+          <Animated.View style={{opacity}}>
             <Buttons.Yellow ><Text>3</Text></Buttons.Yellow>
             </Animated.View>
         </TouchableOpacity>
