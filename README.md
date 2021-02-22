@@ -1,16 +1,26 @@
 # Genius-Game-ReactNative ⚛
 Jogo Genius em React Native, ainda em desenvolvimento.
 
-![](/ImagesReadme/play.jpeg?w512)
+<img src="/ImagesReadme/game.jpeg" width="200" height="200">
 ![](/ImagesReadme/game.jpeg)
 ![](/ImagesReadme/gameplay.jpeg)
 ![](/ImagesReadme/gameover.jpeg)
 
 # Como jogar!
 
-Tem que ter instalado o expo 
+    Tem que ter instalado o expo 
 
-    * npm 
+    * npm install --global expo-cli
+
+    * npm install --save styled-components
+
+    Depois de instalar executar
+
+    npm run start
+
+    Para jogar 🎮
+
+
 
 
 
