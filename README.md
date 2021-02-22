@@ -1,8 +1,17 @@
 # Genius-Game-ReactNative ⚛
-Fazendo um jogo Genius em React Native
+Jogo Genius em React Native, ainda em desenvolvimento.
+
+![](/ImagesReadme/play.jpeg)
+![](/ImagesReadme/game.jpeg)
+![](/ImagesReadme/gameplay.jpeg)
+![](/ImagesReadme/gameover.jpeg)
+
+# Como jogar!
 
 
-#Tecnologias usadas 🐱‍💻
+
+
+# Tecnologias usadas 🐱‍💻
   
  * React Native
  * Expo

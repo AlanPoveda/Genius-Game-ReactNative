@@ -25,7 +25,7 @@ const LevelText = styled.Text`
 
 LevelText.Score = styled.Text`
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   padding-bottom: 20px;
 `;
 
@@ -75,6 +75,14 @@ Buttons.Yellow = styled.View`
   overflow: hidden;
 `;
 
+const ValueText = styled.Text`
+  color: white;
+  text-align:center;
+  font-size: 50px;
+  padding: 40px;
+  text-shadow: 3px 3px 3px grey;
+`
+
 export default function Game(props) {
   const opacity = useState(new Animated.Value(0))[0];
   
@@ -122,7 +130,7 @@ export default function Game(props) {
           }}
         >
           <Buttons.Blue>
-            <Text style={{ padding: 15 }}>0</Text>
+            <ValueText >0</ValueText>
           </Buttons.Blue>
         </TouchableOpacity>
 
@@ -135,7 +143,7 @@ export default function Game(props) {
           }}
         >
           <Buttons.Green>
-            <Text>1</Text>
+            <ValueText>1</ValueText>
           </Buttons.Green>
         </TouchableOpacity>
       </Buttons.Top>
@@ -150,7 +158,7 @@ export default function Game(props) {
           }}
         >
           <Buttons.Red>
-            <Text>2</Text>
+            <ValueText>2</ValueText>
           </Buttons.Red>
         </TouchableOpacity>
 
@@ -163,7 +171,7 @@ export default function Game(props) {
           }}
         >
           <Buttons.Yellow>
-            <Text>3</Text>
+            <ValueText>3</ValueText>
           </Buttons.Yellow>
         </TouchableOpacity>
       </Buttons.Bot>
