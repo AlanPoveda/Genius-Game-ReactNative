@@ -15,7 +15,6 @@ function nextLevel() {
   geniusArray.push(getRandomInt(4));
   index = 0;
   start = true;
-  console.log(geniusArray);
 }
 
 //Player game
@@ -40,12 +39,9 @@ function sendButton(buttonPress) {
 function validation(buttonPress) {
   if (geniusArray[index] === buttonPress) {
     if (index + 1 === geniusArray.length) {
-      console.log("Right, next level");
       nextLevel();
     }
-    console.log("Other value");
   } else {
-    console.log("Game Over");
     return gameOver = true;
   }
 }
