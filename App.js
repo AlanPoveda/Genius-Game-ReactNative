@@ -29,7 +29,7 @@ const screenStates = {
   GameOver: "GameOver",
 };
 
-export default function App() {
+export default function App(){
   const [arrayGame, setArrayGame] = useState(1);
   const [arrayGameShow, setArrayGameShow] = useState(geniusArray);
   const [screenState, setScreenState] = useState(screenStates.Home);
