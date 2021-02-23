@@ -27,8 +27,8 @@ Jogo Genius em React Native, ainda em desenvolvimento.
 
 # Tecnologias usadas 🐱‍💻
   
- * React Native
- * Expo
- * Styled Components
+    * React Native
+    * Expo
+    * Styled Components
  
  
