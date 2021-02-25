@@ -8,15 +8,20 @@ Jogo Genius em React Native, ainda em desenvolvimento.
 
 # Como jogar!
 
-    Tem que ter instalado o expo 
+    Tem que ter instalado o expo, melhor usando yarn
 
     * npm install --global expo-cli
 
-    * npm install --save styled-components
+    * yarn add expo
+
 
     Depois de instalar executar
 
     npm run start
+
+    ou 
+
+    yarn start
 
     Para jogar 🎮
 
